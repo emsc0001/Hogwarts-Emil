@@ -20,13 +20,6 @@ public class Application {
         initSubjects();
         initTeachingMaterials();
         initCourses();
-
-        //printHouses();
-        //printStudents();
-        //printTeachers();
-        //printSubjects();
-        //printTeachingMaterials();
-        //printCourses();
     }
 
     public void initHouses(){
