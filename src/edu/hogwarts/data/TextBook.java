@@ -1,4 +1,4 @@
-package src.edu.hogwarts;
+package edu.hogwarts.data;
 
 public class TextBook extends TeachingMaterial{
     private String title;

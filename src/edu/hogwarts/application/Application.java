@@ -1,4 +1,4 @@
-package src.edu.hogwarts;
+package edu.hogwarts.application;
 
 import java.time.LocalDate;
 
