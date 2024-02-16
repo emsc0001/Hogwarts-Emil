@@ -1,54 +1,48 @@
 package edu.hogwarts.data;
 
-import java.time.LocalDate;
+import edu.generic.Student;
 
-public class YearGroup {
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class YearGroup{
     private int schoolYear;
     private LocalDate beginningOfSchoolYear;
-    private Student[] students;
+    private List<Student> students;
 
-    public YearGroup(int schoolYear, LocalDate beginningOfSchoolYear, Student[] students){
+    public YearGroup(int schoolYear, LocalDate beginningOfSchoolYear){
         this.schoolYear = schoolYear;
         this.beginningOfSchoolYear = beginningOfSchoolYear;
-        this.students = students;
-    }
-    public YearGroup(){
-        this.schoolYear = 1;
-        this.beginningOfSchoolYear = LocalDate.now();
-        this.students = new Student[0];
+        this.students = new ArrayList<>();
     }
 
-    public int getSchoolYear() {
+    public int getSchoolYear(){
         return schoolYear;
     }
-    public void setSchoolYear(int schoolYear) {
+
+    public void setSchoolYear(int schoolYear){
         this.schoolYear = schoolYear;
     }
-    public LocalDate getBeginningOfSchoolYear() {
+
+    public LocalDate getBeginningOfSchoolYear(){
         return beginningOfSchoolYear;
     }
-    public void setBeginningOfSchoolYear(LocalDate beginningOfSchoolYear) {
+
+    public void setBeginningOfSchoolYear(LocalDate beginningOfSchoolYear){
         this.beginningOfSchoolYear = beginningOfSchoolYear;
     }
-    public Student[] getStudents() {
-        return students;
-    }
-    public void setStudents(Student[] students) {
-        this.students = students;
+
+    public void addStudent(HogwartsStudent student){
+        this.students.add(student);
     }
 
-    @Override
-    public String toString() {
-        StringBuilder studentString = new StringBuilder();
-        for(Student student : students){
-            studentString.append(student).append(", ");
-        }
-        studentString.replace(studentString.lastIndexOf(", "), studentString.length()-1, ".");
-
-        return "YearGroup{\n" +
-                "schoolYear: " + schoolYear + "\n" +
-                "beginningOfSchoolYear: " + beginningOfSchoolYear + "\n" +
-                "students: " + studentString + "\n" +
-                "}";
+    public int getNumberOfStudents(){
+        return this.students.size();
     }
+
+    public HogwartsStudent getStudent(int index){
+        return (HogwartsStudent)this.students.get(index);
+    }
+
 }

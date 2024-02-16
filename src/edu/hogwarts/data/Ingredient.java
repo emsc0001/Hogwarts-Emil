@@ -1,44 +1,37 @@
 package edu.hogwarts.data;
 
 public class Ingredient extends TeachingMaterial{
-    private String name;
     private double amount;
     private String unit;
 
-    public Ingredient(String name, double amount, String unit){
-        this.name = name;
+    public String toString(){
+        return super.toString() + ", amount: " + amount + ", unit: " + unit;
+    }
+
+    public Ingredient(String name, boolean onShoppingList, boolean required, boolean provided, String notes, double amount, String unit){
+        super(name, onShoppingList, required, provided, notes);
         this.amount = amount;
         this.unit = unit;
     }
+
     public Ingredient(){
 
     }
 
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public double getAmount() {
+    public double getAmount(){
         return amount;
     }
-    public void setAmount(double amount) {
+
+    public void setAmount(double amount){
         this.amount = amount;
     }
-    public String getUnit() {
+
+    public String getUnit(){
         return unit;
     }
-    public void setUnit(String unit) {
+
+    public void setUnit(String unit){
         this.unit = unit;
     }
 
-    @Override
-    public String toString() {
-        return "Ingredient{\n" +
-                "name: " + name + "\n" +
-                "amount: " + amount + "\n" +
-                "unit: " + unit + "\n" +
-                "}";
-    }
 }

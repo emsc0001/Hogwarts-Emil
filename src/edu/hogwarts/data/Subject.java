@@ -5,41 +5,41 @@ public class Subject {
     private int schoolYear;
     private boolean elective;
 
+    public String toString(){
+        return "edu.hogwarts.data.Subject: " + name + ", " + schoolYear + ", elective: " + elective;
+    }
+
     public Subject(String name, int schoolYear, boolean elective){
         this.name = name;
         this.schoolYear = schoolYear;
         this.elective = elective;
     }
+
     public Subject(){
 
     }
 
-    public String getName() {
+    public String getName(){
         return name;
     }
-    public void setName(String name) {
+
+    public void setName(String name){
         this.name = name;
     }
-    public int getSchoolYear() {
+
+    public int getSchoolYear(){
         return schoolYear;
     }
-    public void setSchoolYear(int schoolYear) {
+
+    public void setSchoolYear(int schoolYear){
         this.schoolYear = schoolYear;
     }
-    public boolean isElective() {
+
+    public boolean isElective(){
         return elective;
     }
-    public void setElective(boolean elective) {
+
+    public void setElective(boolean elective){
         this.elective = elective;
     }
-
-    @Override
-    public String toString() {
-        return "Subject{\n" +
-                "name: " + name + "\n" +
-                "schoolYear: " + schoolYear + "\n" +
-                "elective: " + elective + "\n" +
-                "}";
-    }
-
 }

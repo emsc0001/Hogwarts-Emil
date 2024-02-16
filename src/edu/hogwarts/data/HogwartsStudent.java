@@ -1,58 +1,55 @@
 package edu.hogwarts.data;
 
-public class HogwartsStudent extends Student implements HogwartsPerson {
+import edu.generic.Student;
+
+public class HogwartsStudent extends Student implements HogwartsPerson{
     private House house;
     private boolean prefect;
     private String[] teams;
 
-    public HogwartsStudent(House house, boolean prefect, String[] teams, int enrollmentYear, int graduationYear, boolean graduated, String fullName){
-        super(enrollmentYear, graduationYear, graduated, fullName);
+    public String toString(){
+        return super.toString() + house + ", prefect=" + prefect + ", teams=" + String.join(", ", teams) + "}";
+    }
+
+    public HogwartsStudent(String firstName, String middleName, String lastName, int enrollmentYear, int graduationYear, boolean graduated, House house, boolean prefect, String[] teams){
+        super(firstName, middleName, lastName, enrollmentYear, graduationYear, graduated);
         this.house = house;
         this.prefect = prefect;
         this.teams = teams;
     }
-    public HogwartsStudent(){
-        super();
-        this.teams = new String[0];
-        this.house = new House();
+
+    public HogwartsStudent(String fullName, int enrollmentYear, int graduationYear, boolean graduated, House house, boolean prefect, String[] teams){
+        super(fullName, enrollmentYear, graduationYear, graduated);
+        this.house = house;
+        this.prefect = prefect;
+        this.teams = teams;
     }
 
-    public House getHouse() {
+    public HogwartsStudent(){
+
+    }
+
+    public House getHouse(){
         return house;
     }
-    public void setHouse(House house) {
+
+    public void setHouse(House house){
         this.house = house;
     }
-    public boolean isPrefect() {
+
+    public boolean isPrefect(){
         return prefect;
     }
-    public void setPrefect(boolean prefect) {
+
+    public void setPrefect(boolean prefect){
         this.prefect = prefect;
     }
-    public String[] getTeams() {
+
+    public String[] getTeams(){
         return teams;
     }
-    public void setTeams(String[] teams) {
-        this.teams = teams;
-    }
 
-    @Override
-    public String toString() {
-        StringBuilder teamString = new StringBuilder();
-        if(teams.length > 0){
-            for(String team : teams){
-                teamString.append(team).append(", ");
-            }
-            teamString.replace(teamString.lastIndexOf(", "), teamString.length()-1, ".");
-        }
-        return  "HogwartsStudent{\n" +
-                " fullName: " + getFullName() + "\n" +
-                " enrollmentYear: " + getEnrollmentYear() + "\n" +
-                " graduationYear: " + getGraduationYear() + "\n" +
-                " graduated: " + isGraduated() + "\n" +
-                " house: " + house.getName() + "\n" +
-                " prefect: " + prefect + "\n" +
-                " teams: " + teamString + "\n" +
-                "}";
+    public void setTeams(String[] teams){
+        this.teams = teams;
     }
 }
